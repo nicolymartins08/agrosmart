@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Relatório do solo | AgroSmart</title><link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"></head>
+<body>
+<header class="topbar appbar"><a class="brand" href="/dashboard"><span class="brand-mark">🌱</span><span>Agro<span>Smart</span></span></a><div class="user-actions"><a class="btn btn-ghost" href="/dashboard">← Voltar ao painel</a><button class="btn btn-ghost" id="logout-button">Sair ↗</button></div></header>
+<main class="page-shell">
+  <div class="welcome-row"><div><p class="eyebrow">DADOS DO ESP32</p><h1>Relatório do solo</h1><p class="muted">Leituras mais recentes recebidas do dispositivo <b>{{ device_id }}</b>.</p></div><button class="btn btn-primary" id="refresh-button">↻ Atualizar dados</button></div>
+  <div id="demo-warning" class="notice"><span>ⓘ</span><p>Se o ESP32 ainda não estiver conectado, os dados iniciais são apenas ilustrativos.</p></div>
+  <section class="metric-grid" id="metrics">
+    <article class="metric-card"><div class="metric-top"><span>Umidade do solo</span><span class="metric-symbol">💧</span></div><div class="metric-value" id="moisture">--<small>%</small></div><p class="metric-caption">Leitura do sensor de umidade</p><div class="meter"><span id="moisture-bar" style="width:0%"></span></div></article>
+    <article class="metric-card"><div class="metric-top"><span>Temperatura</span><span class="metric-symbol">🌡️</span></div><div class="metric-value" id="temperature">--<small>°C</small></div><p class="metric-caption">Temperatura medida pelo sensor</p><div class="metric-status" id="temperature-status">Aguardando leitura</div></article>
+    <article class="metric-card"><div class="metric-top"><span>pH do solo</span><span class="metric-symbol">🧪</span></div><div class="metric-value" id="ph">--</div><p class="metric-caption">Acidez ou alcalinidade estimada</p><div class="metric-status" id="ph-status">Aguardando leitura</div></article>
+  </section>
+  <section class="history-panel"><div class="section-heading"><div><p class="eyebrow">HISTÓRICO RECENTE</p><h2>Últimas medições</h2></div><span id="last-updated" class="muted">Sem atualização</span></div><div class="table-scroll"><table><thead><tr><th>Data e hora</th><th>Umidade</th><th>Temperatura</th><th>pH</th></tr></thead><tbody id="history-body"><tr><td colspan="4">Carregando leituras…</td></tr></tbody></table></div><button class="btn btn-outline" id="download-report">Baixar relatório CSV ↓</button></section>
+  <div class="notice"><span>ⓘ</span><p>Os valores adequados variam conforme a cultura, o tipo de solo e a calibração. O pH deve ser medido por sensor apropriado e calibrado; a leitura não substitui análise agronômica.</p></div>
+</main>
+<footer class="footer"><span>© 2026 AgroSmart</span><span>Monitoramento inteligente do solo</span></footer>
+<script>window.AGRO_DEVICE_ID = {{ device_id|tojson }};</script>
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body></html>
