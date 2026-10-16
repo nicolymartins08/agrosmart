@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AgroSmart | Acesso ao dispositivo</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="login-page">
+  <header class="topbar">
+    <a class="brand" href="/"><span class="brand-mark">🌱</span><span>Agro<span>Smart</span></span></a>
+    <span class="top-label">TECNOLOGIA PARA O CAMPO</span>
+  </header>
+  <main class="login-layout">
+    <section class="hero-copy">
+      <div class="eyebrow"><span class="pulse"></span> AGRICULTURA INTELIGENTE</div>
+      <h1>Seu solo.<br><em>Mais inteligente.</em></h1>
+      <p>Acompanhe a umidade, a temperatura e o pH do solo em um só lugar. Dados que ajudam você a cuidar melhor da sua plantação.</p>
+      <div class="hero-points">
+        <div><span>01</span><p><b>Monitore</b><small>Veja os dados do seu solo</small></p></div>
+        <div><span>02</span><p><b>Entenda</b><small>Acesse relatórios organizados</small></p></div>
+        <div><span>03</span><p><b>Controle</b><small>Solicite irrigação pelo painel</small></p></div>
+      </div>
+    </section>
+    <section class="login-card">
+      <div class="card-icon">↗</div>
+      <p class="eyebrow">ÁREA DO PRODUTOR</p>
+      <h2>Acesse seu AgroSmart</h2>
+      <p class="muted">Digite o número de identificação que está no seu dispositivo ou na etiqueta do QR Code.</p>
+      <form id="login-form">
+        <label for="device-id">Número do produto</label>
+        <div class="input-wrap"><span>⌕</span><input id="device-id" name="device_id" placeholder="Ex.: AGRO-001" autocomplete="off" required></div>
+        <button class="btn btn-primary btn-wide" type="submit">Entrar no painel <span>→</span></button>
+        <p id="login-message" class="form-message" role="status"></p>
+      </form>
+      <div class="secure-note"><span>◈</span> Acesso vinculado ao seu dispositivo</div>
+      <p class="demo-note">Demonstração do projeto: <b>AGRO-001</b></p>
+    </section>
+  </main>
+  <footer class="footer"><span>© 2026 AgroSmart</span><span>Monitoramento inteligente do solo</span></footer>
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
